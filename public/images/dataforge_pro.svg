@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b3d91" />
+      <stop offset="100%" stop-color="#00c4ff" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="40" fill="url(#grad)" />
+  <rect x="80" y="100" width="1040" height="520" rx="32" fill="rgba(255,255,255,0.12)" />
+  <text x="120" y="220" font-family="Inter, sans-serif" font-size="72" font-weight="700" fill="#ffffff">DataForge Pro</text>
+  <text x="120" y="320" font-family="Inter, sans-serif" font-size="36" fill="#e7f8ff">AI-driven data processing platform</text>
+  <g transform="translate(120,420)">
+    <rect x="0" y="0" width="400" height="140" rx="24" fill="#ffffff" opacity="0.18" />
+    <text x="30" y="70" font-family="Inter, sans-serif" font-size="34" fill="#ffffff">LLM + query + visualization</text>
+  </g>
+  <circle cx="920" cy="240" r="72" fill="#ffffff" opacity="0.18" />
+  <path d="M740 530 L1020 470" stroke="#ffffff" stroke-width="12" stroke-linecap="round" />
+  <path d="M760 570 L1040 510" stroke="#ffffff" stroke-width="12" stroke-linecap="round" />
+</svg>

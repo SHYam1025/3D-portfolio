@@ -1,0 +1,224 @@
+.career-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: auto;
+  margin: auto;
+  margin-bottom: 250px;
+  padding: 120px 20px;
+}
+
+.career-section h2 {
+  font-size: 70px;
+  line-height: 1.1;
+  font-weight: 400;
+  text-align: center;
+  background: linear-gradient(0deg, #0d9488, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-top: 50px;
+  margin-bottom: 90px;
+}
+
+.career-info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.career-info-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Changed to center for better alignment with large logos */
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+.career-info-in {
+  display: flex;
+  width: 48%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.role-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.company-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  
+  /* Glassmorphism Effect */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  /* Modern Border */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px; /* Softer, modern corners */
+  
+  padding: 15px;
+  flex-shrink: 0;
+  
+  /* Soft Shadow + Subtle Teal Glow */
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    0 0 0 1px rgba(20, 184, 166, 0.1); 
+    
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+/* Hover Effect: The logo "pops" and glows teal */
+.career-info-box:hover .company-logo {
+  transform: translateY(-5px) scale(1.05);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border: 1px solid rgba(20, 184, 166, 0.5);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(20, 184, 166, 0.3);
+}
+.career-description-container {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.career-description-container p {
+  width: 100% !important;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 0;
+  color: #e2e8f0;
+}
+
+/* Timeline */
+.career-timeline {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #14b8a6, #0d9488, transparent);
+  z-index: -1;
+}
+
+.career-dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #14b8a6;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px #5eead4;
+}
+
+/* Typography */
+.career-info h3 { font-size: 42px; font-weight: 500; margin: 0; color: #fff; }
+.career-info h4 { font-size: 26px; font-weight: 600; margin: 0; color: #fff; }
+.career-info h5 { font-size: 17px; font-weight: 400; color: #14b8a6; margin-top: 5px; }
+
+.edu-percent {
+  font-size: 22px !important;
+  color: #5eead4 !important;
+  font-weight: 600 !important;
+}
+
+.company-link {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.company-link:hover { color: #14b8a6; }
+
+/* Details Button */
+.details-btn {
+  background: transparent;
+  border: 1px solid #14b8a6;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  width: fit-content;
+  transition: 0.3s;
+}
+
+.details-btn:hover {
+  background: #14b8a6;
+  color: #000;
+}
+
+.details-list {
+  margin-top: 15px;
+  list-style: none;
+  padding: 0;
+}
+
+.details-list li {
+  font-size: 15px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.details-list li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #14b8a6;
+}
+
+/* Responsive */
+@media only screen and (max-width: 1100px) {
+  .career-info h3 { font-size: 32px; }
+  .career-info h4 { font-size: 22px; }
+  .company-logo { width: 80px; height: 80px; }
+}
+
+@media only screen and (max-width: 900px) {
+  .career-info-box { flex-direction: column; gap: 30px; padding-left: 60px; }
+  .career-info-in, .career-description-container { width: 100%; }
+  .career-timeline, .career-dot { left: 30px; transform: none; }
+  .career-info h3 { order: -1; font-size: 24px; }
+}
+
+@media only screen and (max-width: 600px) {
+  .career-section h2 { font-size: 42px; }
+  .company-logo { width: 65px; height: 65px; padding: 8px; }
+  .role-header { gap: 15px; }
+}
+/* Special class for wide logos like Masin AI */
+.wide-logo {
+  width: 160px; /* Give it more horizontal room */
+  height: auto;
+  max-height: 60px;
+  background: transparent; /* Wide logos look better without a box */
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.wide-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(20, 184, 166, 0.5));
+}

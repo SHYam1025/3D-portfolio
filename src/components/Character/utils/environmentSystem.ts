@@ -70,6 +70,7 @@ export class EnvironmentSystem {
     
     // Create atmospheric elements
     this.createAtmosphericParticles();
+    this.createGroundShadow();
   }
 
   private createGroundShadow() {

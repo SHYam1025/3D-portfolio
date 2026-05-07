@@ -74,7 +74,6 @@ export class GazeSystem {
   // Gaze target
   private gazeTarget: GazeTarget = "cursor";
   private gazeTransitionProgress: number = 1;
-  private previousGazeTarget: GazeTarget = "cursor";
   
   // Idle gaze wandering
   private idleGazeTime: number = 0;
@@ -87,9 +86,6 @@ export class GazeSystem {
   private screenGazeTimer: number = 0;
   private screenGazeInterval: number = 2.0;
   
-  // Attention delay (slight delay before looking creates anticipation)
-  private attentionDelay: number = 0;
-  private attentionTarget: { x: number; y: number } = { x: 0, y: 0 };
 
   // Eye refocus simulation
   private refocusTimer: number = 0;
@@ -113,7 +109,6 @@ export class GazeSystem {
 
   setGazeTarget(target: GazeTarget) {
     if (target !== this.gazeTarget) {
-      this.previousGazeTarget = this.gazeTarget;
       this.gazeTarget = target;
       this.gazeTransitionProgress = 0;
     }

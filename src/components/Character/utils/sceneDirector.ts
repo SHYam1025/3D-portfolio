@@ -19,7 +19,6 @@ export class SceneDirector {
   
   private character: THREE.Object3D;
   private neckBone: THREE.Object3D | null;
-  private containerEl: HTMLDivElement | null = null;
   private scrollTriggers: ScrollTrigger[] = [];
   private isDesktop: boolean;
   private monitorScaled: boolean = false;
@@ -34,11 +33,10 @@ export class SceneDirector {
     _mixer: THREE.AnimationMixer,
     _gltf: GLTF,
     scene: THREE.Scene,
-    containerEl: HTMLDivElement | null
+    _containerEl: HTMLDivElement | null
   ) {
     this.character = character;
     this.camera = camera;
-    this.containerEl = containerEl;
     this.isDesktop = window.innerWidth > 1024;
     
     this.environmentSystem = new EnvironmentSystem(scene);

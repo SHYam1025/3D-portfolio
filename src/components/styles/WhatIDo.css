@@ -1,394 +1,410 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700&display=swap");
+
 .whatIDO {
   display: flex;
   align-items: center;
   justify-content: center;
-  place-items: center;
   position: relative;
-  opacity: 1;
-  height: 100vh;
+
   width: var(--cWidth);
   max-width: 1920px;
+  min-height: 100vh;
+
   margin: auto;
   z-index: 9;
 }
+
+/* LEFT + RIGHT SIDE */
 .what-box {
   width: 50%;
   display: flex;
   justify-content: center;
   position: relative;
-  z-index: 9;
+  z-index: 2;
 }
+
+/* BIG TITLE */
 .what-box h2 {
-  font-size: calc(4vw + 25px);
-  line-height: calc(4vw + 20px);
-  font-weight: 600;
+  font-family: "Sora", sans-serif;
+
+  font-size: clamp(4rem, 8vw, 8rem);
+  line-height: 0.9;
+
+  font-weight: 800;
+
   margin-right: 10%;
-  margin-bottom: 100px;
+
+  letter-spacing: -0.08em;
+
+  color: rgba(255, 255, 255, 0.95);
+
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.08),
+    0 0 80px rgba(0, 255, 255, 0.05);
 }
 
 .hat-h2 {
   font-style: italic;
 }
+
 .do-h2 {
   color: var(--accentColor);
+
+  text-shadow:
+    0 0 25px rgba(0, 255, 255, 0.25);
 }
+
+/* RIGHT SIDE WRAPPER */
 .what-box-in {
-  flex-direction: column;
-  height: 500px;
-  margin-left: 200px;
   position: relative;
+
   display: flex;
-  opacity: 0;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 620px;
+
+  margin-left: 60px;
 }
+
+/* SCROLL AREA */
+.what-scroll-area {
+  display: flex;
+  flex-direction: column;
+
+  gap: 22px;
+
+  max-height: 720px;
+
+  overflow-y: auto;
+
+  padding-right: 10px;
+
+  scrollbar-width: none;
+}
+
+.what-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+
+/* GLASS CARD */
 .what-content {
-  width: 450px;
-  height: 33%;
-  min-height: 50%;
-  transition: 0.5s;
-  /* border: 0.5px dashed rgba(255, 255, 255, 0.3); */
   position: relative;
-  padding: 50px;
+
+  width: 100%;
+
+  min-height: 230px;
+
+  padding: 35px;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
   box-sizing: border-box;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.02)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.06);
+
+  transition:
+    transform 0.45s ease,
+    border 0.45s ease,
+    box-shadow 0.45s ease,
+    background 0.45s ease;
 }
 
-.what-noTouch:hover,
+/* CARD HOVER */
+.what-content:hover,
 .what-content-active {
-  min-height: 67%;
-  padding: 40px 50px;
+  transform: translateY(-8px);
+
+  border:
+    1px solid rgba(0, 255, 255, 0.18);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.03)
+    );
+
+  box-shadow:
+    0 25px 60px rgba(0, 255, 255, 0.08),
+    0 0 120px rgba(59, 130, 246, 0.08);
 }
 
-.what-noTouch:hover ~ .what-content,
-.what-box-in:hover .what-noTouch:not(:hover),
-.what-content.what-sibling {
-  min-height: 33%;
-  padding: 10px 50px;
+/* INNER CONTENT */
+.what-content-in {
+  position: relative;
+  z-index: 2;
 }
+
+/* HEADLINE */
 .what-content h3 {
-  font-size: 35px;
-  letter-spacing: 1px;
-  margin: 0;
-}
-.what-content p {
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 200;
-  letter-spacing: 0.7px;
-}
-.what-content h4 {
-  font-weight: 300;
-  letter-spacing: 1px;
-  margin: 0px;
-  font-size: 14px;
-  opacity: 0.3;
-}
-.what-content-in {
-  opacity: 0;
-  animation: whatFlicker 0.5s 1 forwards;
-  animation-delay: 1s;
-}
-@keyframes whatFlicker {
-  0%,
-  25%,
-  35%,
-  60% {
-    opacity: 0;
-  }
+  font-family: "Sora", sans-serif;
 
-  30%,
-  50%,
-  40%,
-  100% {
-    opacity: 1;
-  }
+  font-size: 2rem;
+
+  font-weight: 700;
+
+  letter-spacing: -0.05em;
+
+  margin: 0 0 8px;
+
+  color: rgba(255, 255, 255, 0.95);
 }
-.what-content::before,
-.what-corner::before,
-.what-content::after,
-.what-corner::after {
-  content: "";
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  border: 4px solid #fff;
-  opacity: 0;
-  animation: whatCorners 0.2s 1 forwards;
-  animation-delay: 0.5s;
+
+/* SUBTITLE */
+.what-content h4 {
+  font-family: "Inter", sans-serif;
+
+  font-size: 0.92rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  margin-bottom: 18px;
 }
-@keyframes whatCorners {
-  100% {
-    opacity: 1;
-  }
+
+/* DESCRIPTION */
+.what-content p {
+  font-family: "Inter", sans-serif;
+
+  font-size: 0.98rem;
+
+  line-height: 1.8;
+
+  font-weight: 400;
+
+  letter-spacing: -0.01em;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  margin-bottom: 28px;
 }
-.what-content::before {
-  top: -2px;
-  left: -2px;
-  border-right: none;
-  border-bottom: none;
+
+/* SMALL LABEL */
+.what-content h5 {
+  font-family: "Inter", sans-serif;
+
+  font-size: 0.78rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  margin-bottom: 14px;
 }
-.what-corner::before {
-  top: -2px;
-  right: -2px;
-  border-left: none;
-  border-bottom: none;
-}
-.what-content::after {
-  bottom: -2px;
-  left: -2px;
-  border-top: none;
-  border-right: none;
-}
-.what-corner::after {
-  bottom: -2px;
-  right: -2px;
-  border-left: none;
-  border-top: none;
-}
-.what-arrow {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 25px;
-  height: 25px;
-  border: 1px solid #fff;
-}
-.what-arrow::before {
-  content: "";
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  border-left: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  transition: 0.5s;
-  width: 10px;
-  height: 10px;
-}
-.what-noTouch:hover .what-arrow::before,
-.what-content-active .what-arrow::before {
-  transform: translate(-50%, -20%) rotate(-225deg);
-}
-.what-border1 {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
-  transition: 0.5s;
-  max-width: 0%;
-  overflow: hidden;
-  opacity: 0.8;
-  animation: whatBorders 1.2s 1 forwards;
-}
-.what-border1 svg {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 450px;
-}
-.what-border2 {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 100%;
-  max-height: 0%;
-  overflow: hidden;
-  transition: 0.5s;
-  opacity: 0.8;
-  animation: whatBorders 1.2s 1 forwards;
-}
-.what-border2 svg {
-  height: 500px;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-}
-.what-content-in {
-  height: 100%;
-  overflow: hidden;
-}
-.what-content-in h5 {
-  font-weight: 300;
-  opacity: 0.5;
-  font-size: 12px;
-  letter-spacing: 1px;
-  font-family: "Geist", sans-serif;
-  margin-bottom: 5px;
-}
-@keyframes whatBorders {
-  80% {
-    opacity: 0.8;
-  }
-  100% {
-    max-height: 100%;
-    max-width: 100%;
-    opacity: 0.2;
-  }
-}
+
+/* TAGS WRAPPER */
 .what-content-flex {
   display: flex;
-  gap: 5px;
   flex-wrap: wrap;
+
+  gap: 10px;
 }
+
+/* TECH TAG */
 .what-tags {
-  font-size: 13px;
-  font-weight: 400;
-  padding: 2px 7px;
-  background-color: rgba(255, 255, 255, 0.15);
-  border: 1px solid #ffffff50;
-  border-radius: 30px;
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 0.82rem;
+
+  font-weight: 500;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border 0.3s ease;
 }
-@media only screen and (max-width: 1600px) {
-  .what-box h2 {
-    margin-right: 18%;
-  }
+
+.what-tags:hover {
+  transform: scale(1.05);
+
+  background:
+    rgba(0, 255, 255, 0.12);
+
+  border:
+    1px solid rgba(0, 255, 255, 0.25);
 }
-@media only screen and (max-width: 1400px) {
-  .what-box h2 {
-    margin-right: 20%;
-  }
+
+/* GLOW LAYER */
+.glass-layer {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(0, 255, 255, 0.12),
+      transparent 40%
+    );
+
+  opacity: 0.8;
+
+  pointer-events: none;
+}
+
+/* ARROW */
+.what-arrow {
+  position: absolute;
+
+  bottom: 28px;
+  right: 28px;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(10px);
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  transition: 0.35s ease;
+}
+
+.what-arrow::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 10px;
+  height: 10px;
+
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+
+  transform:
+    translate(-50%, -60%) rotate(45deg);
+
+  transition: 0.35s ease;
+}
+
+.what-content:hover .what-arrow,
+.what-content-active .what-arrow {
+  background:
+    rgba(0, 255, 255, 0.12);
+
+  border:
+    1px solid rgba(0, 255, 255, 0.3);
+}
+
+.what-content:hover .what-arrow::before,
+.what-content-active .what-arrow::before {
+  transform:
+    translate(-50%, -40%) rotate(45deg);
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 1200px) {
   .what-box-in {
-    height: 400px;
+    margin-left: 0;
   }
+
+  .what-content {
+    min-height: 240px;
+  }
+
   .what-content h3 {
-    font-size: 28px;
+    font-size: 1.7rem;
   }
-  .what-content {
-    padding: 30px;
-    width: 400px;
-  }
-  .what-content p {
-    font-size: 13px;
-  }
-  .what-noTouch:hover,
-  .what-content-active {
-    padding: 20px 30px;
-  }
+}
 
-  .what-noTouch:hover ~ .what-content,
-  .what-box-in:hover .what-noTouch:not(:hover),
-  .what-content.what-sibling {
-    padding: 10px 30px;
-  }
-  .what-tags {
-    font-size: 12px;
-  }
-}
-@media only screen and (max-width: 1400px) {
-  .what-box-in {
-    margin-left: 50px;
-  }
-  .what-content {
-    width: 380px;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  .whatIDO {
-    height: auto;
-    padding: 50px 0px;
-    padding-bottom: 50px;
-  }
-  .what-box-in {
-    height: 500px;
-    margin-left: -50px;
-  }
-  .what-content {
-    padding: 50px;
-    width: 500px;
-  }
-  .what-content p {
-    font-size: 14px;
-  }
-  .what-noTouch:hover,
-  .what-content-active {
-    min-height: 67%;
-    padding: 50px;
-  }
-
-  .what-noTouch:hover ~ .what-content,
-  .what-box-in:hover .what-noTouch:not(:hover),
-  .what-content.what-sibling {
-    min-height: 33%;
-    padding: 10px 50px;
-  }
-}
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 950px) {
   .whatIDO {
     flex-direction: column;
-  }
-  .what-box h2 {
-    margin: 50px 0;
-    font-size: 55px;
-    line-height: 53px;
-  }
-  .what-box:first-child {
-    justify-content: left;
-  }
-  .what-box:last-child {
-    height: 500px;
-  }
-  .what-box {
-    width: 500px;
-    max-width: calc(100% - 50px);
-    margin: auto;
-  }
-  .what-content {
-    width: 100%;
-  }
-  .what-box-in {
-    margin-left: 0px;
-    height: 450px;
-  }
-  .what-content h5,
-  .what-content-flex {
-    opacity: 0;
-    transition: 0.3s;
-  }
-  .what-noTouch:hover h5,
-  .what-content-active h5,
-  .what-noTouch:hover .what-content-flex,
-  .what-content-active .what-content-flex {
-    opacity: 1;
-  }
-  .what-content {
-    padding: 30px;
-  }
-  .what-content p {
-    font-size: 11px;
-  }
-  .what-noTouch:hover,
-  .what-content-active {
-    padding: 10px 30px;
-  }
-  .what-tags {
-    font-size: 11px;
+
+    padding: 100px 0;
   }
 
-  .what-noTouch:hover ~ .what-content,
-  .what-box-in:hover .what-noTouch:not(:hover),
-  .what-content.what-sibling {
-    padding: 5px 30px;
-  }
-  .what-content h3 {
-    font-size: 25px;
-  }
-}
-@media only screen and (max-width: 550px) {
-  .whatIDO {
-    place-items: inherit;
-    align-items: start;
-    justify-content: left;
-  }
   .what-box {
-    max-width: calc(100% - 25px);
-    margin: 0;
+    width: 100%;
+  }
+
+  .what-box h2 {
+    margin:
+      0 0 60px 0;
+
+    text-align: center;
+  }
+
+  .what-box-in {
+    max-width: 100%;
+  }
+
+  .what-scroll-area {
+    max-height: unset;
+  }
+
+  .what-content {
+    min-height: unset;
   }
 }
-@media only screen and (min-width: 1950px) {
+
+@media only screen and (max-width: 650px) {
+  .what-content {
+    padding: 28px;
+  }
+
+  .what-content h3 {
+    font-size: 1.45rem;
+  }
+
+  .what-content p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .what-tags {
+    font-size: 0.75rem;
+    padding: 8px 12px;
+  }
+
   .what-box h2 {
-    font-size: 7rem;
-    line-height: 6.8rem;
+    font-size: 4rem;
   }
 }
